@@ -21,6 +21,7 @@ Welcome to the **Python for Data Science** repository! This repository contains 
   - [Day 03: Data Analysis & EDA (Global Tuberculosis Burden)](#day-03-data-analysis--eda-global-tuberculosis-burden)
 - [Dataset Specifications](#-dataset-specifications)
 - [Key EDA Findings & Case Study](#-key-eda-findings--case-study)
+- [📈 Exploratory Data Analysis Visualizations](#-exploratory-data-analysis-visualizations)
 - [Tech Stack & Dependencies](#-tech-stack--dependencies)
 - [Getting Started & Running Locally](#-getting-started--running-locally)
 - [How to Push to GitHub](#-how-to-push-to-github)
@@ -61,8 +62,14 @@ Python_for_data_sci/
 │   ├── introduction_to_panda.ipynb    # Pandas DataFrames, Series & indexing
 │   ├── pandas_02.ipynb                # Filtering, selection & column operations
 │   ├── data_importing_and_visualization.ipynb  # Environment setup & library check
-│   └── pandas_03_EDA.ipynb            # In-depth Exploratory Data Analysis & plots
+│   ├── pandas_03_EDA.ipynb            # In-depth Exploratory Data Analysis & plots
+│   └── 📂 figures/                    # Generated High-Resolution Charts
+│       ├── pakistan_tb_trend.png
+│       ├── regional_tb_comparison.png
+│       ├── tb_prevalence_distribution.png
+│       └── tb_metrics_correlation.png
 │
+├── make_plots.py                      # Plot generation script
 └── README.md                          # Repository Documentation
 ```
 
@@ -139,6 +146,32 @@ By extracting and analyzing data specifically for **Pakistan** in `pandas_03_EDA
 
 ---
 
+## 📈 Exploratory Data Analysis Visualizations
+
+Below are key visual insights generated from `pandas_03_EDA.ipynb`:
+
+### 1. Pakistan TB Prevalence Decline vs. Population Growth (1990 – 2013)
+Dual-axis time-series visualization showing population growth alongside a continuous decline in TB prevalence per 100,000 population.
+
+![Pakistan TB Trend](Day_03/figures/pakistan_tb_trend.png)
+
+### 2. Regional TB Prevalence Comparison across WHO Regions
+Bar chart showing average estimated TB prevalence rate per 100k population grouped by WHO region.
+
+![Regional TB Comparison](Day_03/figures/regional_tb_comparison.png)
+
+### 3. Global TB Prevalence Distribution
+Histogram with KDE curve illustrating the right-skewed distribution of global TB prevalence rates across all recorded country-years.
+
+![Global TB Distribution](Day_03/figures/tb_prevalence_distribution.png)
+
+### 4. Correlation Matrix of Epidemiological Indicators
+Heatmap highlighting linear relationships between total population, TB prevalence rates, mortality rates, and case detection rates.
+
+![Correlation Heatmap](Day_03/figures/tb_metrics_correlation.png)
+
+---
+
 ## 🛠️ Tech Stack & Dependencies
 
 - **Programming Language**: Python 3.10+
@@ -154,11 +187,11 @@ By extracting and analyzing data specifically for **Pakistan** in `pandas_03_EDA
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Python_for_data_sci.git
+git clone https://github.com/Abdul3442/Python_for_data_sci.git
 cd Python_for_data_sci
 ```
 
-### 2. Create & Activate a Virtual Environment (Optional but Recommended)
+### 2. Create & Activate a Virtual Environment (Optional)
 
 ```bash
 # Windows
@@ -184,6 +217,11 @@ pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyter streamli
   python Day_02/functions.py
   ```
 
+- **Generate Figures & Charts**:
+  ```bash
+  python make_plots.py
+  ```
+
 - **Launch Jupyter Notebooks**:
   ```bash
   jupyter notebook
@@ -192,49 +230,13 @@ pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyter streamli
 
 ---
 
-## 📤 How to Push to GitHub
-
-Follow these steps to upload this project to your GitHub account:
-
-### Step 1: Initialize Git in the Project Directory
-
-Open terminal / command prompt inside the `Python_for_data_sci` folder and run:
-
-```bash
-git init
-```
-
-### Step 2: Add Files to Staging Area
+## 📤 How to Push Updates to GitHub
 
 ```bash
 git add .
-```
-
-### Step 3: Commit the Changes
-
-```bash
-git commit -m "Add complete Python for Data Science code, EDA notebooks, and README"
-```
-
-### Step 4: Create a New Repository on GitHub
-
-1. Go to [GitHub New Repository](https://github.com/new).
-2. Set Repository Name: `Python_for_data_sci`.
-3. Keep it **Public** (or Private).
-4. Do **NOT** initialize with a README, .gitignore, or license (since we already created them).
-5. Click **Create repository**.
-
-### Step 5: Link Local Repo to GitHub & Push
-
-Copy the repository URL from GitHub and run:
-
-```bash
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/Python_for_data_sci.git
+git commit -m "Add EDA visualizations, figure plots, and updated README"
 git push -u origin main
 ```
-
-*(Replace `YOUR-USERNAME` with your actual GitHub username).*
 
 ---
 
