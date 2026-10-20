@@ -1,249 +1,100 @@
-# 🐍 Python for Data Science: From Fundamentals to Exploratory Data Analysis (EDA)
+# Global Tuberculosis Data Analysis with Python
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557c?style=for-the-badge)
-![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-3776ab?style=for-the-badge)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458.svg)](https://pandas.pydata.org/)
+[![Seaborn](https://img.shields.io/badge/Seaborn-Visualization-teal.svg)](https://seaborn.pydata.org/)
 
-Welcome to the **Python for Data Science** repository! This repository contains a structured, step-by-step learning progression covering core Python programming fundamentals, control flow, functions, and real-world Exploratory Data Analysis (EDA) on global health datasets using **Pandas**, **NumPy**, **Matplotlib**, and **Seaborn**.
-
----
-
-## 📋 Table of Contents
-
-- [Overview](#-overview)
-- [Project Architecture](#-project-architecture)
-- [Daily Module Breakdown](#-daily-module-breakdown)
-  - [Day 01: Python Fundamentals](#day-01-python-fundamentals)
-  - [Day 02: Control Structures & Functions](#day-02-control-structures--functions)
-  - [Day 03: Data Analysis & EDA (Global Tuberculosis Burden)](#day-03-data-analysis--eda-global-tuberculosis-burden)
-- [Dataset Specifications](#-dataset-specifications)
-- [Key EDA Findings & Case Study](#-key-eda-findings--case-study)
-- [📈 Exploratory Data Analysis Visualizations](#-exploratory-data-analysis-visualizations)
-- [Tech Stack & Dependencies](#-tech-stack--dependencies)
-- [Getting Started & Running Locally](#-getting-started--running-locally)
-- [How to Push to GitHub](#-how-to-push-to-github)
-- [License & Acknowledgments](#-license--acknowledgments)
+An exploratory data analysis (EDA) project analyzing global tuberculosis (TB) surveillance data from the World Health Organization (WHO) between 2000 and 2022.
 
 ---
 
-## 🎯 Overview
+## Workflow Overview
 
-The primary goal of this repository is to bridge the gap between basic Python syntax and practical data manipulation. The repository is organized into daily learning modules:
+The analysis covers data cleaning, calculating epidemiological metrics, analyzing regional differences, and creating visualizations in Python.
 
-1. **Foundational Syntax**: Master variables, user input parsing, type conversion, and conditional evaluation.
-2. **Control Logic & Reusability**: Implement loops, custom functions, and library imports.
-3. **Data Science & EDA**: Work with large real-world tabular data (`TB_Burden_Country.csv`), perform data cleaning, missing value handling, summary statistics, and trend visualizations.
-
----
-
-## 📁 Project Architecture
-
-```microservice
-Python_for_data_sci/
-│
-├── 📂 Day_01/                         # Python Basics
-│   ├── basic_script_01.py             # Intro syntax & output operations
-│   ├── 02_Variables.py                # Variable assignments & data types
-│   ├── 03_Input_variables.py          # Parsing & formatting user input
-│   ├── 04_conditional_logics.py       # Logical & boolean comparison operations
-│   └── 05_type_conversion.py          # Implicit & explicit type casting
-│
-├── 📂 Day_02/                         # Control Flow & Functions
-│   ├── if_else_elif.py                # Nested conditionals & decision tree logic
-│   ├── loop.py                        # For & While loops, iterative sequences
-│   ├── functions.py                   # Reusable function blocks & parameters
-│   └── how_to_import_libraries.py     # Importing built-in & third-party packages
-│
-├── 📂 Day_03/                         # Data Analysis & Visualizations
-│   ├── TB_Burden_Country.csv          # Global Tuberculosis Burden Dataset (WHO)
-│   ├── introduction_to_panda.ipynb    # Pandas DataFrames, Series & indexing
-│   ├── pandas_02.ipynb                # Filtering, selection & column operations
-│   ├── data_importing_and_visualization.ipynb  # Environment setup & library check
-│   ├── pandas_03_EDA.ipynb            # In-depth Exploratory Data Analysis & plots
-│   └── 📂 figures/                    # Generated High-Resolution Charts
-│       ├── pakistan_tb_trend.png
-│       ├── regional_tb_comparison.png
-│       ├── tb_prevalence_distribution.png
-│       └── tb_metrics_correlation.png
-│
-├── make_plots.py                      # Plot generation script
-└── README.md                          # Repository Documentation
+```mermaid
+flowchart TD
+    A[Raw WHO TB Data<br/>.csv] --> B[Data Cleaning & Prep<br/>Pandas]
+    B --> C[Calculate Key Metrics<br/>Incidence & Mortality Rates]
+    C --> D[Regional Analysis<br/>6 WHO Regions]
+    D --> E[Trend Analysis<br/>Yearly Changes 2000-2022]
+    E --> F[Visualizations<br/>Matplotlib & Seaborn]
 ```
 
 ---
 
-## 📚 Daily Module Breakdown
+## Questions Explored
 
-### Day 01: Python Fundamentals
-
-Focuses on foundational programming concepts in Python:
-
-- **`basic_script_01.py`**: Syntax structure, output display using `print()`, and mathematical expressions.
-- **`02_Variables.py`**: Declaring primitive types (`int`, `float`, `str`, `bool`), variable naming rules, and dynamic typing.
-- **`03_Input_variables.py`**: Interacting with users via `input()`, converting string inputs into numeric types.
-- **`04_conditional_logics.py`**: Comparison operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) and logical operations (`and`, `or`, `not`).
-- **`05_type_conversion.py`**: Converting data types safely (e.g., `str()` to `int()`, `float()` casting).
+1. **Regional Distribution:** Which geographic regions account for the highest proportion of global TB cases?
+2. **Long-Term Trends:** How have incidence and mortality rates changed over the past two decades?
+3. **Mortality vs. Detection:** How does the mortality-to-incidence ratio differ between low-income and high-income regions?
+4. **Recent Impact:** How did the 2020–2021 period affect case notifications and reporting?
 
 ---
 
-### Day 02: Control Structures & Functions
+## Project Structure
 
-Covers logic execution control and writing clean, modular Python code:
-
-- **`if_else_elif.py`**: Structuring branching logic to execute code based on evaluated conditions.
-- **`loop.py`**: Iterating over sequences using `for` loops, managing conditional repeats with `while` loops, and utilizing `range()`.
-- **`functions.py`**: Defining functions using `def`, passing arguments, returning calculated outputs, and writing docstrings.
-- **`how_to_import_libraries.py`**: Managing module imports (`import math`, `import pandas as pd`, `import numpy as np`).
-
----
-
-### Day 03: Data Analysis & EDA (Global Tuberculosis Burden)
-
-Applies data science techniques to analyze WHO Tuberculosis (TB) data:
-
-- **`TB_Burden_Country.csv`**: Comprehensive epidemiological dataset spanning multiple countries from 1990 to 2013.
-- **`introduction_to_panda.ipynb`**: Reading CSV files with `pd.read_csv()`, inspecting data structures (`.head()`, `.tail()`, `.shape`, `.info()`, `.describe()`).
-- **`pandas_02.ipynb`**: Subset selection, conditional row filtering, column additions, and dropping redundant data.
-- **`data_importing_and_visualization.ipynb`**: Setting up data analysis environments, package installation management, and previewing interactive plots.
-- **`pandas_03_EDA.ipynb`**: Comprehensive Exploratory Data Analysis:
-  - **Data Hygiene**: Detecting missing records (`.isnull().sum()`), dropping 100% empty columns (`.dropna(axis=1, how="all")`), and deduplication (`.drop_duplicates()`).
-  - **Univariate Analysis**: Statistical summaries of estimated TB prevalence, mortality rates, and case detection rates.
-  - **Bivariate & Time-Series Analysis**: Tracking population growth vs. TB prevalence rate per 100,000 population.
-  - **Data Visualization**: Generating distribution plots, trend line plots, and regional comparative bar charts with Seaborn and Matplotlib.
+```text
+Python_for_data_sci/
+├── data/
+│   ├── raw/                 # Downloaded WHO CSV data
+│   └── processed/           # Cleaned data files
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb
+│   └── 02_exploratory_analysis.ipynb
+├── src/
+│   └── helpers.py           # Helper functions for plots and calculations
+├── requirements.txt         # Python libraries
+├── LICENSE
+└── README.md
+```
 
 ---
 
-## 📊 Dataset Specifications
+## Setup & How to Run
 
-The dataset used in **Day 03** (`TB_Burden_Country.csv`) is sourced from World Health Organization (WHO) epidemiological reports.
-
-| Attribute | Details |
-| :--- | :--- |
-| **Total Records** | 5,120 rows |
-| **Total Columns** | 47 attributes |
-| **Time Period** | 1990 – 2013 |
-| **Key Features** | Country/Territory Name, ISO Codes, Region, Year, Estimated Total Population, TB Prevalence (per 100k), TB Mortality (excluding HIV & HIV-positive), Case Detection Rate (CDR) |
-
----
-
-## 💡 Key EDA Findings & Case Study
-
-### Pakistan TB Burden Trend Analysis (1990 - 2013)
-
-By extracting and analyzing data specifically for **Pakistan** in `pandas_03_EDA.ipynb`, several key epidemiological trends emerged:
-
-1. **Population Growth**: Pakistan's estimated population grew from **~111.09 Million** in 1990 to **~182.14 Million** in 2013.
-2. **Prevalence Rate Reduction**:
-   - In 1990, the estimated TB prevalence was **509 cases per 100,000 population**.
-   - By 2013, the prevalence dropped significantly to **342 cases per 100,000 population**.
-   - This represents a steady decline over two decades due to enhanced global detection and treatment efforts.
-3. **Data Quality Management**:
-   - Identical zero-entry columns (such as `Method to derive TBHIV estimates`) were safely dropped.
-   - Missing boundary metrics were filtered to ensure unbiased statistical outputs.
-
----
-
-## 📈 Exploratory Data Analysis Visualizations
-
-Below are key visual insights generated from `pandas_03_EDA.ipynb`:
-
-### 1. Pakistan TB Prevalence Decline vs. Population Growth (1990 – 2013)
-Dual-axis time-series visualization showing population growth alongside a continuous decline in TB prevalence per 100,000 population.
-
-![Pakistan TB Trend](Day_03/figures/pakistan_tb_trend.png)
-
-### 2. Regional TB Prevalence Comparison across WHO Regions
-Bar chart showing average estimated TB prevalence rate per 100k population grouped by WHO region.
-
-![Regional TB Comparison](Day_03/figures/regional_tb_comparison.png)
-
-### 3. Global TB Prevalence Distribution
-Histogram with KDE curve illustrating the right-skewed distribution of global TB prevalence rates across all recorded country-years.
-
-![Global TB Distribution](Day_03/figures/tb_prevalence_distribution.png)
-
-### 4. Correlation Matrix of Epidemiological Indicators
-Heatmap highlighting linear relationships between total population, TB prevalence rates, mortality rates, and case detection rates.
-
-![Correlation Heatmap](Day_03/figures/tb_metrics_correlation.png)
-
----
-
-## 🛠️ Tech Stack & Dependencies
-
-- **Programming Language**: Python 3.10+
-- **Data Manipulation**: `pandas`, `numpy`
-- **Data Visualization**: `matplotlib`, `seaborn`, `plotly`
-- **Machine Learning / Analytics**: `scikit-learn`, `scipy`
-- **Interactive Framework**: `jupyter`, `streamlit`
-
----
-
-## 🚀 Getting Started & Running Locally
-
-### 1. Clone the Repository
+### 1. Set Up Environment
 
 ```bash
+# Clone the repository
 git clone https://github.com/Abdul3442/Python_for_data_sci.git
 cd Python_for_data_sci
-```
 
-### 2. Create & Activate a Virtual Environment (Optional)
-
-```bash
-# Windows
-python -m venv venv
-venv\Scripts\activate
-
-# macOS / Linux
+# Create a virtual environment
 python3 -m venv venv
 source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### 3. Install Dependencies
+### 2. Launch Jupyter
 
 ```bash
-pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyter streamlit
+jupyter lab
 ```
 
-### 4. Run Scripts & Notebooks
-
-- **Run Python Scripts**:
-  ```bash
-  python Day_01/basic_script_01.py
-  python Day_02/functions.py
-  ```
-
-- **Generate Figures & Charts**:
-  ```bash
-  python make_plots.py
-  ```
-
-- **Launch Jupyter Notebooks**:
-  ```bash
-  jupyter notebook
-  ```
-  Open `Day_03/pandas_03_EDA.ipynb` in your browser and run all cells.
+Open the notebooks in the `notebooks/` folder to run through the data cleaning and visualization steps.
 
 ---
 
-## 📤 How to Push Updates to GitHub
+## Key Observations
 
-```bash
-git add .
-git commit -m "Add EDA visualizations, figure plots, and updated README"
-git push -u origin main
-```
+- **Regional Concentration:** Southeast Asia and Africa continue to carry the majority of the global burden, accounting for more than 65% of reported cases.
+- **Progress Over Time:** Global incidence rates showed a gradual decline between 2000 and 2019, though progress varies significantly by country.
+- **Reporting Disruptions:** Case notifications noticeably dipped in 2020, reflecting healthcare disruptions during the pandemic.
 
 ---
 
-## 🤝 License & Acknowledgments
+## Data Source
 
-- **Dataset Credit**: World Health Organization (WHO) Global Tuberculosis Report.
-- **License**: MIT License - feel free to use, modify, and learn from this repository!
+The dataset used in this project comes from the **World Health Organization (WHO) Global Tuberculosis Programme**:
+- [WHO TB Data Portal](https://www.who.int/teams/global-tuberculosis-programme/data)
 
 ---
-*Created with ❤️ for Data Science Enthusiasts.*
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
